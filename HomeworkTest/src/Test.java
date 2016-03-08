@@ -1,27 +1,29 @@
 import java.awt.FlowLayout;
-import java.util.*;
+import java.io.IOException;
 import javax.swing.*;
 public class Test {
 
-	public static void main(String[] args) {
-		
+	public static void main(String[] args) throws IOException {
+		String[] KPlayers = {"Dustin Brown","Anze Kopitar","Milan Lucic","Jonatan Quick",};
+		Team kings = new Team(1, KPlayers, "Kings");
 		int play = JOptionPane.showConfirmDialog(null,"HOCKEY TIME");
 		if (play == 0){
-			teamSelect();
+			teamSelect(kings);
 		}
 		else{
 			JOptionPane.showConfirmDialog(null, "you have to play!!!");
 		}
 	}
-public static void teamSelect(){
-	JFrame frame = new JFrame("JFrame Example");
-	 
+public static void teamSelect(Object kings) throws IOException{
+	JFrame frame = new JFrame("Hockey Shootout");
 	        JPanel panel = new JPanel();
 	        panel.setLayout(new FlowLayout());
-	        frame.add(new JLabel(new ImageIcon("LAkingsLOGO.png")));
 	        JButton rightTeamOne = new JButton();
 	        rightTeamOne.setText("<<<");
 	        panel.add(rightTeamOne);
+	        JLabel team1= new JLabel();
+	        team1 .setText(kings.teamName);
+	        panel.add(team1);
 	        JButton leftTeamOne= new JButton();
 	        leftTeamOne.setText(">>>");
 	        panel.add(leftTeamOne);
@@ -38,7 +40,9 @@ class Team{
 	byte teamID;
 	String[] Players;
 	String teamName;
-	Team(byte TID, String[] players, String TN){
-		
+	Team(int i, String[] players, String TN){
+		this.teamID = (byte) i;
+		this.Players = players;
+		this.teamName = TN;
 	}
 }
