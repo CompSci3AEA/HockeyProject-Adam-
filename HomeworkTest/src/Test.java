@@ -14,7 +14,8 @@ public class Test {
 			JOptionPane.showConfirmDialog(null, "you have to play!!!");
 		}
 	}
-public static void teamSelect(Object kings) throws IOException{
+public static void teamSelect(Team kings) throws IOException{
+			Integer CID = 1;
 	JFrame frame = new JFrame("Hockey Shootout");
 	        JPanel panel = new JPanel();
 	        panel.setLayout(new FlowLayout());
@@ -22,9 +23,9 @@ public static void teamSelect(Object kings) throws IOException{
 	        rightTeamOne.setText("<<<");
 	        panel.add(rightTeamOne);
 	        JLabel team1= new JLabel();
-	        team1 .setText(kings.teamName);
+	        team1 .setText(CID.toString());
 	        panel.add(team1);
-	        JButton leftTeamOne= new JButton();
+	        JButton leftTeamOne = new JButton();
 	        leftTeamOne.setText(">>>");
 	        panel.add(leftTeamOne);
 	        frame.add(panel);
@@ -32,7 +33,6 @@ public static void teamSelect(Object kings) throws IOException{
 	        frame.setLocationRelativeTo(null);
 	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	        frame.setVisible(true);
-
 }
 	
 }
